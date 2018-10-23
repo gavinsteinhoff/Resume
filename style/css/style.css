@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav {
+  background-color: #7493B2;
+  padding: .5rem;
+}
+
+.nav .expand {
+  color: white;
+  display: none;
+  font-size: 1.5rem;
+}
+
+.nav input {
+  display: none;
+}
+
+.nav input:checked ~ ul {
+  opacity: 1;
+  max-height: 100rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav a:hover {
+  color: #C8CBCD;
+}
+
+.nav a.active {
+  color: #003366;
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: max-height 1s, visibility  1.1s ,opacity 1.3s;
+  transition: max-height 1s, visibility  1.1s ,opacity 1.3s;
+}
+
+.nav li {
+  font-size: 1.5rem;
+  display: inline-block;
+  cursor: pointer;
+  width: 10rem;
+  text-align: center;
+}
+
+.nav li:hover ul {
+  display: block;
+  opacity: 1;
+}
+
+.nav li ul {
+  position: absolute;
+  padding-top: .5rem;
+  display: none;
+  opacity: 0;
+}
+
+.nav li ul li {
+  display: block;
+  padding-top: 1rem;
+  background-color: #7493B2;
+  font-size: 1rem;
+}
+
+.nav li ul li:last-child {
+  padding-bottom: 1rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.container {
+  padding: 1rem 1rem 0 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% 25% 25% 25%;
+      grid-template-columns: 25% 25% 25% 25%;
+  -ms-grid-rows: auto auto auto auto;
+      grid-template-rows: auto auto auto auto;
+}
+
+.container .name {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+.container .name h1 {
+  font-weight: lighter;
+  font-size: 3rem;
+}
+
+.container .name h1 span {
+  color: #003366;
+}
+
+@media (max-width: 767px) {
+  .nav .expand {
+    display: block;
+  }
+  .nav ul {
+    opacity: 0;
+    max-height: .5rem;
+  }
+  .nav li {
+    display: block;
+    text-align: left;
+    padding: .5rem 0 .4rem 0;
+  }
+  .name {
+    -ms-grid-column: 1 !important;
+    -ms-grid-column-span: 4 !important;
+    grid-column: 1 / span 4 !important;
+  }
+  .name h1 {
+    font-size: 2rem !important;
+  }
+  .name h1 span {
+    font-size: 2.5rem;
+  }
+  .name h1 span:before {
+    content: '';
+    display: block;
+  }
+}
+/*# sourceMappingURL=style.css.map */
