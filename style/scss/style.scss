@@ -1,0 +1,143 @@
+$break-md: "(max-width: 1200px)";
+$color-1: #05386B;
+$color-2: #379683;
+$color-3: #5CDB95;
+$color-4: #8EE4AF;
+$color-5: #EDF5E1;
+
+// $color-1: #0B0C10;
+// $color-2: #1F2833;
+// $color-3: #C5C6C7;
+// $color-4: #66FCF1;
+// $color-5: #45A29E;
+
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    //background: linear-gradient($color-5,$color-1);
+    background-color: rgba($color-2,0.5);
+}
+.nav {
+    background-color: $color-5;
+    border-bottom: 1px solid $color-1;
+    padding: 2rem .5rem 2rem .5rem;
+    .expand {
+        color: $color-2;
+        display: none;
+        font-size: 1.5rem;
+    }
+    input{
+        display: none;
+        &:checked ~ ul {
+            max-height: 100rem;
+        }
+    }
+    a {
+        text-decoration: none;
+        color:  $color-2;
+        &:hover {
+            color: $color-1;
+        }
+        &.active {
+            color: $color-1;
+        }
+    }
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        transition: max-height .5s;
+        overflow-y: hidden;
+    }
+    li {
+        font-size: 1.5rem;
+        display: inline-block;
+        cursor: pointer;
+        width: 10rem;
+        text-align: center;
+        i {
+            color: $color-2;
+            padding-left: .5rem;
+            opacity: 0;
+        }
+        &:hover ul{
+            display: block;
+            opacity: 1;
+        }
+    }
+}
+.container {
+    padding: 1rem 10rem 0 10rem;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 1rem;
+    .name {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        h1 {
+            font-weight: lighter;
+            font-size: 3rem;
+            span {
+                color: $color-1;
+                font-weight: lighter;
+            }
+        }
+        p {
+            padding-left: 1rem;
+        }
+    }
+    .resume-title {
+        grid-column: 1 / 1;
+        font-size: 1.5rem;
+    }
+    .resume {
+        background-color: $color-2;
+        color: $color-5;
+        grid-column: 1 / 1;
+        border: 1px solid $color-1;
+        padding: 0rem 1rem;
+        border-radius: 15px;
+    }
+}
+
+
+
+@media #{$break-md} {
+    .nav {
+        .expand {
+            display: block;
+        }
+        ul {
+            max-height: .5rem;
+        }
+        li {
+            display: block;
+            text-align: left;
+            padding: .5rem 0 .4rem 0;
+            i {
+                opacity: 1;
+            }
+        }
+    }
+
+    .container {
+        grid-template-columns: 100%;
+    }
+                    
+    .name {
+        h1 {
+            font-size: 2rem !important;
+            span {
+                font-size: 2.5rem;
+                &:before {
+                    content: '';
+                    display: block;
+                }
+            }
+        }
+        p {
+            padding-left: 0 !important;
+        }
+    }
+}
