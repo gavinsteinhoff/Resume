@@ -1,4 +1,7 @@
+$break-xs: "(max-width: 768px)";
+$break-sm: "(max-width: 992px)";
 $break-md: "(max-width: 1200px)";
+$break-lg: "(min-width: 1201px)";
 $color-1: #05386B;
 $color-2: #379683;
 $color-3: #5CDB95;
@@ -68,10 +71,10 @@ body {
     }
 }
 .container {
-    padding: 1rem 10rem 0 10rem;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
     grid-gap: 1rem;
+    margin-left: auto;
+    margin-right: auto;
     .name {
         grid-column: 1 / span 2;
         grid-row: 1;
@@ -87,20 +90,59 @@ body {
             padding-left: 1rem;
         }
     }
-    .resume-title {
-        grid-column: 1 / 1;
-        font-size: 1.5rem;
-    }
     .resume {
-        background-color: $color-2;
-        color: $color-5;
         grid-column: 1 / 1;
-        border: 1px solid $color-1;
-        padding: 0rem 1rem;
-        border-radius: 15px;
+        grid-row: 2 / span 1;
+        border-top: 1px solid $color-1;
+        padding-top: 1rem;
+        .resume-flex {
+            display: flex;
+            flex-direction: column;
+            .resume-title {
+                font-size: 1.5rem;
+            }
+            .resume-item {
+                background-color: $color-2;
+                color: $color-5;
+                border: 1px solid $color-1;
+                margin-top: 1rem;
+                padding: 0rem 1rem;
+                border-radius: 15px;
+            }
+        }
+    }
+    .project {
+        border-top: 1px solid $color-1;
+        padding-top: 1rem;
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+        .project-flex {
+            display: flex;
+            flex-direction: column;
+            .project-title {
+                font-size: 1.5rem;
+            }
+            .project-item {
+                background-color: $color-2;
+                color: $color-5;
+                border: 1px solid $color-1;
+                margin-top: 1rem;
+                padding: 0rem 1rem;
+                border-radius: 15px;
+                a {
+                    color: $color-5;
+                }
+            }
+        }
     }
 }
 
+@media #{$break-lg} { 
+    .container {
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 1170px;
+    }
+}
 
 
 @media #{$break-md} {
@@ -122,22 +164,52 @@ body {
     }
 
     .container {
-        grid-template-columns: 100%;
-    }
-                    
-    .name {
-        h1 {
-            font-size: 2rem !important;
-            span {
-                font-size: 2.5rem;
-                &:before {
-                    content: '';
-                    display: block;
+        grid-template-columns: 1fr 1fr;
+        width: 970px;            
+        .name {
+            h1 {
+                font-size: 2rem !important;
+                span {
+                    font-size: 2.5rem;
+                    &:before {
+                        content: '';
+                        display: block;
+                    }
                 }
             }
+            p {
+                padding-left: 0 !important;
+            }
+        }   
+    }
+}
+
+
+@media #{$break-sm} {
+    .nav {
+        padding: 1rem .5rem;
+    }
+    .container {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+        width: 750px;
+        .resume {
+            font-size: .7rem;
         }
-        p {
-            padding-left: 0 !important;
+        .project {
+            grid-column: 1 / span 1;
+            grid-row: 3 / span 1;
+            font-size: .7rem;
+            margin-top: 1rem;
         }
+    }
+    
+}
+
+
+
+@media #{$break-xs} {
+    .container {
+        width: 90%;
     }
 }

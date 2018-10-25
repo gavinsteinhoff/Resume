@@ -66,12 +66,11 @@ body {
 }
 
 .container {
-  padding: 1rem 10rem 0 10rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 25% 25% 25% 25%;
-      grid-template-columns: 25% 25% 25% 25%;
   grid-gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container .name {
@@ -96,20 +95,83 @@ body {
   padding-left: 1rem;
 }
 
-.container .resume-title {
+.container .resume {
   -ms-grid-column: 1;
   grid-column: 1 / 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  border-top: 1px solid #05386B;
+  padding-top: 1rem;
+}
+
+.container .resume .resume-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .resume .resume-flex .resume-title {
   font-size: 1.5rem;
 }
 
-.container .resume {
+.container .resume .resume-flex .resume-item {
   background-color: #379683;
   color: #EDF5E1;
-  -ms-grid-column: 1;
-  grid-column: 1 / 1;
   border: 1px solid #05386B;
+  margin-top: 1rem;
   padding: 0rem 1rem;
   border-radius: 15px;
+}
+
+.container .project {
+  border-top: 1px solid #05386B;
+  padding-top: 1rem;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / span 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+}
+
+.container .project .project-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .project .project-flex .project-title {
+  font-size: 1.5rem;
+}
+
+.container .project .project-flex .project-item {
+  background-color: #379683;
+  color: #EDF5E1;
+  border: 1px solid #05386B;
+  margin-top: 1rem;
+  padding: 0rem 1rem;
+  border-radius: 15px;
+}
+
+.container .project .project-flex .project-item a {
+  color: #EDF5E1;
+}
+
+@media (min-width: 1201px) {
+  .container {
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    width: 1170px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -128,21 +190,53 @@ body {
     opacity: 1;
   }
   .container {
-    -ms-grid-columns: 100%;
-        grid-template-columns: 100%;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    width: 970px;
   }
-  .name h1 {
+  .container .name h1 {
     font-size: 2rem !important;
   }
-  .name h1 span {
+  .container .name h1 span {
     font-size: 2.5rem;
   }
-  .name h1 span:before {
+  .container .name h1 span:before {
     content: '';
     display: block;
   }
-  .name p {
+  .container .name p {
     padding-left: 0 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav {
+    padding: 1rem .5rem;
+  }
+  .container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 0;
+    width: 750px;
+  }
+  .container .resume {
+    font-size: .7rem;
+  }
+  .container .project {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / span 1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3 / span 1;
+    font-size: .7rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
   }
 }
 /*# sourceMappingURL=style.css.map */
